@@ -1,0 +1,18 @@
+import com.santaba.agent.groovyapi.http.*;
+
+apikey = hostProps.get("paloalto.apikey.pass")
+host = hostProps.get("system.hostname")
+
+command = java.net.URLEncoder.encode("<show><global-protect-gateway><statistics/></global-protect-gateway></show>")
+url = "https://${host}/api/?type=op&key=${apikey}&cmd=${command}"
+
+def response = new XmlSlurper().parseText(HTTP.body(url))
+
+// loop through list of Gateways
+response.result.Gateway.each { gateway ->
+
+    instance_name = gateway.name.text()
+    println "${instance_name}##${instance_name}##"
+}
+
+return(0)
