@@ -22,7 +22,7 @@ Filter the DataSource to just PaloAlto devices
 
 This will discover each Gateway as a unique Instance. Inactive Instances are **not** automatically deleted.
 
-### [Collector Attributes; Groovy Script](components/collector_attributes-groovy-script)
+### [Collector Attributes; Groovy Script](components/collector_attributes-groovy_script)
 
 The collector will poll each Instance to return the defined values.
 
